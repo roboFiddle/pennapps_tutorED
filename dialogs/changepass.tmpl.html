@@ -1,0 +1,40 @@
+<md-dialog aria-label="Change My Password">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Change Password</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container>
+                    <label>Current Password</label>
+                    <input ng-model="user.changepass[0]" type="password">
+                </md-input-container>
+                <md-input-container>
+                    <label>New Password</label>
+                    <input ng-model="user.changepass[1]" type="password">
+                </md-input-container>
+                <md-input-container>
+                    <label>Confirm New Password</label>
+                    <input ng-model="user.changepass[2]" type="password">
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="answer(0)">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(1)">
+                Change My Password
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

@@ -1,0 +1,34 @@
+<md-dialog flex=60 aria-label="Filter QA Forum">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Set My Filter</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content style="margin-left:24px;margin-right:8px;">
+            <div layout="column" layout-gt-sm="row" >
+                <div ng-repeat="c in categories" style="margin-right:16px" flex layout-align="center">
+                    <h3>{{c.name}}</h3>
+                    <md-checkbox ng-model="selectedFilters[cl.id]" ng-repeat="cl in classes | filter: {category: c.id} ">
+                        {{cl.name}}
+                    </md-checkbox>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="answer(0)">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(2)">
+                Set Filter
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

@@ -1,0 +1,56 @@
+<md-dialog flex="80" aria-label="Post In Forum">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Post in Forum</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="column">
+                        <div layout="row">
+                            <md-input-container flex>
+                                <label>Class Category</label>
+                                <md-select ng-model="selectedCategory">
+                                    <md-option ng-value="c.id" ng-repeat="c in categories">{{c.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label>Select Class</label>
+                                <md-select ng-model="selectedClass">
+                                    <md-option ng-value="cl.id" ng-repeat="cl in classes | filter: {category: selectedCategory} ">{{cl.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>Question Title</label>
+                            <input ng-model="qQuestion"></input>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container flex>
+                            <label>Question Contents</label>
+                            <textarea ng-model="qText" md-maxlength="500" rows="10" md-select-on-focus></textarea>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="answer(0)">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(1)">
+                Post My Question
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

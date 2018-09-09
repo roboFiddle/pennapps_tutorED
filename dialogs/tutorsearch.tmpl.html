@@ -1,0 +1,38 @@
+<md-dialog flex="50" aria-label="Search for A Tutor">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Find a Tutor</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-list>
+                    <md-list flex>
+                        <md-list-item class="md-2-line" ng-repeat="i in availableTutors"  ng-click="null">
+                            <div class="md-list-item-text" style="padding-left:16px;"  layout="column">
+                                <h3>{{i.name}}</h3>
+                                <h4>{{grades[i.grade].name}}</h4>
+                                <p>{{i.bio}}</p>
+                            </div>
+                            <ng-md-icon icon="message" ng-click="openSendDialog($event, i.name)" class="md-secondary"></ng-md-icon>
+                        </md-list-item>
+
+                    </md-list>
+                </md-list>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="answer(0)">
+                Done
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
